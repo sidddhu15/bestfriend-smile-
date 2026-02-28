@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Favorite Human 💖</title>
+
+<style>
+body {
+  margin:0;
+  padding:0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align:center;
+  background: linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
+  background-size:400% 400%;
+  animation: gradient 10s ease infinite;
+  color:white;
+  overflow-x:hidden;
+}
+
+@keyframes gradient {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.container{
+  padding:40px;
+}
+
+button{
+  padding:15px 30px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff4b7d;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.hidden{
+  display:none;
+}
+
+img{
+  width:160px;
+  border-radius:20px;
+  margin:10px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+.typing{
+  border-right:3px solid white;
+  white-space:nowrap;
+  overflow:hidden;
+  width:0;
+  animation: typing 4s steps(40,end) forwards;
+}
+
+@keyframes typing{
+  from{width:0}
+  to{width:100%}
+}
+
+/* Floating Hearts */
+.heart{
+  position:fixed;
+  bottom:-10px;
+  font-size:20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0); opacity:1}
+  100%{transform:translateY(-800px); opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Hey You 😌💖</h1>
+  <p>Click only if you promise not to stay mad 🥺</p>
+  <button onclick="showSurprise()">Open Surprise 💌</button>
+
+  <div id="surprise" class="hidden">
+    <h2 class="typing">You are my favorite person ❤️</h2>
+
+    <div>
+      <img src="photo1.jpg">
+      <img src="photo2.jpg">
+    </div>
+
+    <p>
+      We fight. We argue. We get angry.  
+      <br><br>
+      But at the end of the day...  
+      <br>
+      You are MY PERSON 🫶  
+    </p>
+
+    <h3>Please don't stay mad at me 🥺💖</h3>
+
+    <button onclick="alert('Now smile and come hug me 🤗💞')">
+      Smile Now 😄
+    </button>
+  </div>
+</div>
+
+<script>
+function showSurprise(){
+  document.getElementById("surprise").style.display="block";
+  createHearts();
+}
+
+function createHearts(){
+  setInterval(function(){
+    var heart = document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+10)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+      heart.remove();
+    },5000);
+
+  },300);
+}
+</script>
+
+</body>
+</html>
